@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/root.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0" />
+</head>
+
+<body>
+    <div class="container-form">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button class="toggle-btn" onclick="login()">Login</button>
+                <button class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <div class="social-icons">
+                <h2>Products Manangement</h2>
+            </div>
+            <form id="login" class="input-group" action="">
+                <input type="text" class="input-field" id="emailLog" placeholder="Email" required>
+                <input type="password" class="input-field" id="passwordLog" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box" id="check-box1"><label for="check-box1">Remember
+                    Password</label>
+                <button class="login-btn" id="loginBtn">Login</button>
+            </form>
+            <form id="register" class="input-group" action="">
+                <input type="text" class="input-field" id="userName" placeholder="User Name" required>
+                <input type="text" class="input-field" id="emailReg" placeholder="Email" required>
+                <input type="password" class="input-field" id="passwordReg" placeholder="Password" required>
+                <input type="checkbox" class="check-box" id="check-box2"><label for="check-box">I agree to the temrs &
+                    conditions</label>
+                <button class="login-btn" id="registerBtn">Register</button>
+            </form>
+        </div>
+    </div>
+    <script src="./assets/main.js"></script>
+</body>
+
+</html>

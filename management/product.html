@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/root.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0" />
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2 class="text-muted">ADMIN <span class="danger">DASHBOARD</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp"> close </span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="home.html">
+                    <span class="material-symbols-sharp"> dashboard </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="customer.html">
+                    <span class="material-symbols-sharp"> person </span>
+                    <h3>Customers</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-symbols-sharp"> contract </span>
+                    <h3>Products</h3>
+                </a>
+                <a href="index.html">
+                    <span class="material-symbols-sharp"> logout </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- ------------ END ASIDE ------------------ -->
+        <main>
+            <div class="products">
+                <div class="products-top">
+                    <div class="top-left">
+                        <h2>Products List</h2>
+                        <a href="#" id="add-products">
+                            <span class="material-symbols-sharp"> add </span>
+                            <h3>Add Product</h3>
+                        </a>
+                    </div>
+                    <div class="top-right">
+                        <input type="search" id="search" class="form-search">
+                        <button id="btn-search">Search</button>
+                    </div>
+                </div>
+
+                <div class="products-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Id</th>
+                                <th>Product name</th>
+                                <th>Import Price</th>
+                                <th>Export Price</th>
+                                <th>Import Date</th>
+                                <th>Size</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="content">
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button class="btn-prev" onclick="prevPage()">
+                            <span class="material-symbols-sharp arrow">
+                                arrow_back
+                            </span> prev
+                        </button>
+                        <ul id="list-page">
+                        </ul>
+                        <button class="btn-next" onclick="nextPage()">
+                            next
+                            <span class="material-symbols-sharp arrow">
+                                arrow_forward
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- ------------ END MAIN ------------------ -->
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-symbols-sharp">menu</span> </button>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Duke</b> </p>
+                        <small> Admin </small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- END OF TOP -->
+        </div>
+
+        <!-- modal Add products  -->
+        <div class="overlay hide">
+            <div class="products-form">
+                <form action="#" class="form-addProducts" id="form-addProducts">
+                    <h3 class="title-add"></h3>
+                    <div class="form-group">
+                        <label for="productId">Product ID</label>
+                        <input type="text" name="productId" class="form-input" id="productId" placeholder="VD: SP001">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input type="text" name="productName" class="form-input" id="productName"
+                            placeholder="VD: Áo gió 2 mặt">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="importPrice">Import Price</label>
+                        <input type="text" name="importPrice" class="form-input" id="importPrice"
+                            placeholder="VD: 15 $">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exportPrice">Export Price</label>
+                        <input type="text" name="exportPrice" class="form-input" id="exportPrice"
+                            placeholder="VD: 20 $">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="importDate">Import Date</label>
+                        <input type="date" name="importDate" class="form-input" id="importDate">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Size</label>
+                        <input type="checkbox" name="size" id="sizeS" value="S">
+                        <label>S</label>
+                        <input type="checkbox" name="size" id="sizeM" value="M">
+                        <label>M</label>
+                        <input type="checkbox" name="size" id="sizeL" value="L">
+                        <label>L</label>
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <input type="radio" name="type" id="male" value="male" checked>
+                        <label for="male">Male</label>
+                        <input type="radio" name="type" id="female" value="female">
+                        <label for="female">Female</label>
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" class="form-input"
+                            placeholder="VD: Nhân viên A Nhập Hàng"></textarea>
+                        <span class="form-message"></span>
+                    </div>
+                    <input type="hidden" id="index">
+                    <button class="form-submit">Submit</button>
+                    <button class="form-edit" onclick="changeProduct()">Update</button>
+                </form>
+                <div class="close" id="btn-closeAdd">
+                    <span class="material-symbols-sharp"> close </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="./assets/main.js"></script>
+</body>
+
+</html>
